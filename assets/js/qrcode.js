@@ -1,9 +1,11 @@
 /**
  * qrcode.js
- * https://github.com/kishanparmar4951/copy-link-and-qr-code
+ * https://github.com/davidshimjs/qrcodejs
  *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
  *
- * Copyright 2025 kishanparmar
+ * Copyright 2012 davidshimjs
  */
 
 /**
@@ -12,9 +14,9 @@
  * - Fixed dataset of 'QRCode for Javascript library' for support full-spec.
  * - this library has no dependencies.
  * 
- * @author kishanparmar
- * @see <a href="https://kishanparmar4951.github.io/" target="_blank">https://kishanparmar4951.github.io/</a>
- * @see <a href="https://github.com/kishanparmar4951/copy-link-and-qr-code" target="_blank">https://github.com/kishanparmar4951/copy-link-and-qr-code</a>
+ * @author davidshimjs
+ * @see <a href="http://www.d-project.com/" target="_blank">http://www.d-project.com/</a>
+ * @see <a href="http://jeromeetienne.github.com/jquery-qrcode/" target="_blank">http://jeromeetienne.github.com/jquery-qrcode/</a>
  */
 var QRCode;
 
@@ -22,9 +24,16 @@ var QRCode;
 	//---------------------------------------------------------------------
 	// QRCode for JavaScript
 	//
-	// Copyright (c) 2025 kishanparmar
+	// Copyright (c) 2009 Kazuhiko Arase
 	//
-	// URL: https://kishanparmar4951.github.io/
+	// URL: http://www.d-project.com/
+	//
+	// Licensed under the MIT license:
+	//   http://www.opensource.org/licenses/mit-license.php
+	//
+	// The word "QR Code" is registered trademark of 
+	// DENSO WAVE INCORPORATED
+	//   http://www.denso-wave.com/qrcode/faqpatent-e.html
 	//
 	//---------------------------------------------------------------------
 	function QR8bitByte(data) {

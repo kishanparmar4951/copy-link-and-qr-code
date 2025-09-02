@@ -1,17 +1,17 @@
 <?php
 /**
  * Plugin Name: Copy Link and QR Code
- * Contributors: kishanparmar4951
+ * Contributors: kishanparmar
  * Description: Adds “Copy Link” and “Show QR” buttons on single posts/pages/products. Includes settings (enable per post-type, position), shortcode, and a dynamic Gutenberg block.
  * Version: 1.0
  * Requires at least: 6.1
  * Requires PHP: 7.4
  * Author: Kishan Parmar
- * Author URI: https://github.com/kishanparmar4951/
+ * Author URI: https://profiles.wordpress.org/kishanparmar/
  * Text Domain: copy-link-and-qr-code
  * Domain Path: /languages
- * License: GPL v3 or later
- * License URI: https://github.com/kishanparmar4951/copy-link-and-qr-code/blob/main/LICENSE
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html 
  *
  * @package CopyLinkQR
  */

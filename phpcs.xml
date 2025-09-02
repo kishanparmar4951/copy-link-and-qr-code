@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="Copy Link and QR Code">
+    <description>PHPCS ruleset for Copy Link and QR Code plugin</description>
+    <rule ref="WordPress" />
+    <rule ref="WordPress-Extra" />
+    <arg name="tab-width" value="4" />
+</ruleset>

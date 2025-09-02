@@ -1,0 +1,71 @@
+/* Copy Link and QR Code - minimal, accessible styles */
+.clqr-wrap {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.clqr-btn {
+  font: inherit;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.clqr-btn:focus {
+  outline: 2px solid #2271b1;
+  outline-offset: 2px;
+}
+
+.clqr-btn:hover {
+  background: #efefef;
+}
+
+/* Modal */
+.clqr-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.clqr-modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  width: 320px;
+  max-width: calc(100% - 32px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.clqr-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.clqr-modal-title {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.clqr-close {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.clqr-qrcode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}

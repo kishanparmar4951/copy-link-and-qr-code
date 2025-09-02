@@ -3,7 +3,7 @@
 Easily add "Copy Link" and "QR Code" buttons to your WordPress posts and pages for quick sharing.
 
 ## Contributors
-- dipakparmar443
+- kishanparmar
 
 ## Tags
 copy link, qr code, share, posts, pages

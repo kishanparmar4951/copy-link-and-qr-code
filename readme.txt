@@ -1,7 +1,7 @@
 === Copy Link and QR Code ===
-Contributors: kishan parmar
+Contributors: kishanparmar
 Plugin URI: https://wordpress.org/plugins/copy-link-and-qr-code/
-Author: Kishan Parmar
+Author: KishanParmar
 Author URI: https://profiles.wordpress.org/kishanparmar/
 Tags: copy link, qr code, share, posts, pages
 Requires at least: 6.1

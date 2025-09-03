@@ -489,9 +489,6 @@ final class CLQR_Plugin {
             return;
         }
 
-        $asset_url = plugin_dir_url( __FILE__ ) . 'assets/';
-        wp_enqueue_script( 'clqr-admin', $asset_url . 'js/admin.js', array( 'wp-element' ), self::VERSION, true );
-
         // pass available public post types for nice UI (optional)
         $pts = get_post_types( array( 'public' => true ), 'objects' );
         $pt_names = array();

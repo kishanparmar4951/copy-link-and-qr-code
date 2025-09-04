@@ -1,0 +1,6 @@
+/* Block editor (editor preview) styles */
+.clqrc-block {
+  padding: 8px;
+  border: 1px dashed #ccd0d4;
+  background: #f9f9f9;
+}

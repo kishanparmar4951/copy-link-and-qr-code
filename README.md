@@ -1,96 +1,77 @@
 # Copy Link and QR Code
 
-Easily add "Copy Link" and "QR Code" buttons to your WordPress posts and pages for quick sharing.
+Adds **Copy Link** & **Show QR** buttons on any post type (posts, pages, WooCommerce products).  
+Includes settings for post-types, position, shortcode, and a dynamic Gutenberg block.
 
-## Contributors
-- kishanparmar
-
-## Tags
-copy link, qr code, share, posts, pages
-
-## Requirements
-- WordPress: 6.1 or higher
-- PHP: 7.4 or higher
-- Tested up to: 6.8
-
-## License
-See the **License** section below for details.
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/kishanparmar/)
 
 ---
 
-## Description
+## Features
 
-This lightweight plugin adds a **"Copy Link"** button and a **"QR Code"** button to your WordPress posts and pages. Visitors can quickly copy the post URL to their clipboard or generate a QR code for easy mobile sharing.
-
-**Features**
-- Copy post/page URL with one click
-- Generate and display a QR code for the post/page URL
-- Works with Posts and Pages (and WooCommerce products, if enabled)
-- No external API required
-- Lightweight and fast
-- Ready for customization via CSS
+- 📋 Copy current page URL to clipboard  
+- 📱 Generate a QR code on the fly (no external API)  
+- ⚙️ Settings page for post types & placement  
+- 🔧 Shortcode: `[copy_link_and_qr_code]`  
+- 📦 Gutenberg block  
+- 🪶 Lightweight and privacy-friendly (no data collection)  
 
 ---
 
 ## Installation
 
-1. Download the plugin and install it in your `wp-content/plugins` folder (or use the Plugins menu in the WordPress Admin).
-2. Activate the plugin.
-3. Navigate to **Settings > Copy Link and QR Code**.
-4. Customize the settings as needed.
-5. Save settings.
-6. Visit any post/page to see the **"Copy Link"** and **"QR Code"** buttons.
-
----
-
-## Frequently Asked Questions
-
-**Q: Can I customize the button style?**  
-A: Yes, you can override the CSS in your theme or add custom styles.
-
-**Q: Does it work with WooCommerce?**  
-A: Yes, product pages are supported.
-
-**Q: Does it require an external service?**  
-A: No, the QR code is generated locally using JavaScript.
+1. Upload the plugin files to `/wp-content/plugins/copy-link-and-qr-code/`  
+2. Activate the plugin through the **Plugins** screen in WordPress  
+3. Configure settings under **Settings → Copy Link & QR Code**  
 
 ---
 
 ## Screenshots
 
-1. Buttons displayed under a post  
-2. QR code popup
+1. Copy and QR buttons on a post  
+2. Plugin settings page  
+
+---
+
+## FAQ
+
+### ❓ Does this plugin collect user data?  
+No. It does not collect or send any data to external servers.  
+
+### ❓ Can I use it with WooCommerce?  
+Yes. It works on products as well as posts/pages.  
 
 ---
 
 ## Changelog
 
-**1.0**
-- Initial release with Copy Link and QR Code buttons
-- Added QR Code generation with qrcode.js
-- Added MIT license for qrcode.js
-- Improved code structure
+### 1.0
+- Initial release.  
 
 ---
 
-## Upgrade Notice
+## Library Attribution
 
-**1.0**  
-Now includes built-in QR Code support using qrcode.js.
+This plugin bundles the **[qrcode-generator](https://www.npmjs.com/package/qrcode-generator)** library.  
+
+- Repository: [https://github.com/kazuhikoarase/qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)  
+- Homepage: [https://github.com/kazuhikoarase/qrcode-generator#readme](https://github.com/kazuhikoarase/qrcode-generator#readme)  
+- Documentation: [https://docs.npmjs.com/](https://docs.npmjs.com/)  
+- License: MIT  
+
+This implementation is based on **JIS X 0510:1999**.  
+
+The word **"QR Code"** is a registered trademark of [DENSO WAVE INCORPORATED](http://www.denso-wave.com/qrcode/faqpatent-e.html).  
 
 ---
 
 ## License
 
-### Copy Link and QR Code Plugin
-This plugin is licensed under the **GPLv2 or later**.  
-For details, see [GNU GPLv2 License](https://www.gnu.org/licenses/gpl-2.0.html).
+- Plugin: [GPL v2 or later](https://www.gnu.org/licenses/gpl-2.0.html)  
+- Bundled library (**qrcode-generator**): MIT License  
 
-### QRCode.js Library
-This plugin includes **QRCode.js**, a cross-browser QR code generator for JavaScript, created by David Shim.  
-QRCode.js is licensed under the **MIT License**.  
+---
 
-- **Repository:** [https://github.com/davidshimjs/qrcodejs](https://github.com/davidshimjs/qrcodejs)  
-- **License:** [MIT License](https://opensource.org/licenses/MIT)  
+## Privacy
 
-> **Note:** The full text of the MIT License is included in the `LICENSE` file in this repository.
+This plugin does not collect, store, or transmit any personal data.

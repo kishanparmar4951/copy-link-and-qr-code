@@ -1,0 +1,16 @@
+This folder is reserved for the open-source qrcode-generator JavaScript library by Kazuhiko Arase.
+
+To comply with WordPress.org guidelines you should bundle the UNMINIFIED source here before publishing:
+
+1. Download the unminified file `qrcode.js` from:
+   https://github.com/kazuhikoarase/qrcode-generator/tree/master/js
+
+2. Place the file in this folder as:
+   libraries/qrcode-generator/qrcode.js
+
+3. Optionally include qrcode.min.js for production:
+   libraries/qrcode-generator/qrcode.min.js
+
+4. Include the MIT license file or ensure THIRD-PARTY-NOTICES.md contains the correct license text.
+
+If you can't bundle the file, provide clear documentation and use an opt-in CDN fallback, but bundling the unminified source is preferred for WordPress.org review.

@@ -1,60 +1,62 @@
 === Copy Link and QR Code ===
 Contributors: kishanparmar
-Plugin URI: https://wordpress.org/plugins/copy-link-and-qr-code/
-Author: KishanParmar
-Author URI: https://profiles.wordpress.org/kishanparmar/
-Tags: copy link, qr code, share, posts, pages
+Donate link: https://www.paypal.me/kishanparmar/
+Tags: copy link, qr code, share, shortcode, gutenberg block
 Requires at least: 6.1
 Tested up to: 6.8
 Requires PHP: 7.4
 Stable tag: 1.0
-License: GPLv2 or later
+License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Easily add "Copy Link" and "QR Code" buttons to your posts and pages for quick sharing.
+Adds Copy Link & Show QR buttons on single any post type. Includes settings for post-types, position, shortcode, and a dynamic Gutenberg block.
 
 == Description ==
-This lightweight plugin adds a "Copy Link" button and a "QR Code" button to your WordPress posts and pages. Visitors can quickly copy the post URL to their clipboard or generate a QR code for easy mobile sharing.
 
-**Features**
-* Copy post/page URL with one click
-* Generate and display a QR code for the post/page URL
-* Works with Posts and Pages (and WooCommerce products, if enabled)
-* No external API required
-* Lightweight and fast
-* Ready for customization via CSS
+**Copy Link and QR Code** lets you add shareable buttons to posts, pages, and WooCommerce products:
+
+* Copy current page URL to clipboard
+* Generate a QR code on the fly (no external API)
+* Settings page for post types & placement
+* Shortcode `[copy_link_and_qr_code]`
+* Gutenberg block
+* Lightweight and privacy-friendly (no data collection)
+
+This plugin bundles the **[qrcode-generator](https://www.npmjs.com/package/qrcode-generator)** library.
+
+- Repository: [https://github.com/kazuhikoarase/qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)  
+- Homepage: [https://github.com/kazuhikoarase/qrcode-generator#readme](https://github.com/kazuhikoarase/qrcode-generator#readme)  
+- Documentation: [https://docs.npmjs.com/](https://docs.npmjs.com/)  
+- License: MIT  
+
+This implementation is based on **JIS X 0510:1999**.  
+
+The word "QR Code" is a registered trademark of [DENSO WAVE INCORPORATED](http://www.denso-wave.com/qrcode/faqpatent-e.html).  
 
 == Installation ==
 
-1. Download the plugin & install it to your `wp-content/plugins` folder (or use the Plugins menu through the WordPress Administration section).
-2. Activate the plugin.
-3. Navigate to **Settings > Copy Link and QR Code**.
-4. Customize as needed.
-5. Save settings and check your store!
-6. Visit any post/page to see the "Copy Link" and "QR Code" buttons.
+1. Upload the plugin files to `/wp-content/plugins/copy-link-and-qr-code/`  
+2. Activate the plugin through the "Plugins" screen in WordPress  
+3. Configure settings under **Settings → Copy Link & QR Code**  
 
 == Frequently Asked Questions ==
 
-= Can I customize the button style? =
-Yes, you can override the CSS in your theme or add custom styles.
+= Does this plugin collect user data? =  
+No. It does not collect or send any data to external servers.  
 
-= Does it work with WooCommerce? =
-Yes, product pages are supported.
-
-= Does it require an external service? =
-No, the QR code is generated locally with JavaScript.
+= Can I use it with WooCommerce? =  
+Yes. It works on products as well as posts/pages.  
 
 == Screenshots ==
-1. Buttons displayed under a post
-2. QR code popup
+
+1. Copy and QR buttons on a post  
+2. Plugin settings page  
 
 == Changelog ==
-= 1.0 =
-* Initial release with Copy Link and QR Code buttons
-* Added QR Code generation with qrcode.js
-* Added MIT license for qrcode.js
-* Improved code structure
 
-== Upgrade Notice ==
-= 1.0 =
-Now includes built-in QR Code support using qrcode.js.
+= 1.0 =  
+* Initial release.  
+
+== Privacy ==
+
+This plugin does not collect, store, or transmit any personal data.

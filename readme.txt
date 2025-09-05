@@ -1,6 +1,6 @@
 === Copy Link and QR Code ===
 Contributors: kishanparmar
-Donate link: https://www.paypal.me/kishanparmar/
+Donate link: https://www.paypal.com/paypalme/kishanparmar4951
 Tags: copy link, qr code, share, shortcode, gutenberg block
 Requires at least: 6.1
 Tested up to: 6.8

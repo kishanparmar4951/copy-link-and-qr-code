@@ -1,4 +1,4 @@
-<img width="1414" height="875" alt="image" src="https://github.com/user-attachments/assets/d69bb9dd-e6d7-42f8-968b-62a97fe05543" /># Copy Link and QR Code
+# Copy Link and QR Code
 
 Adds **Copy Link** & **Show QR** buttons on any post type (posts, pages, WooCommerce products).  
 Includes settings for post-types, position, shortcode, and a dynamic Gutenberg block.

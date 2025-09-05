@@ -4,7 +4,7 @@
  * Contributors: kishanparmar
  * Author: Kishan Parmar
  * Author URI: https://profiles.wordpress.org/kishanparmar/
- * Donate link: https://www.paypal.me/kishanparmar/
+ * Donate link: https://www.paypal.com/paypalme/kishanparmar4951
  * Description: Adds “Copy Link” and “Show QR” buttons on single any post type. Includes settings (enable per post-type, position), shortcode, and a dynamic Gutenberg block.
  * Version: 1.0
  * Requires at least: 6.1

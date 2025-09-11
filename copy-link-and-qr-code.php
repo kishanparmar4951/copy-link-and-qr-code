@@ -21,23 +21,35 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-// ----- constants
-define( 'COPY_LINK_AND_QR_CODE_VERSION', '1.0.1' );
-define( 'COPY_LINK_AND_QR_CODE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-define( 'COPY_LINK_AND_QR_CODE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'COPY_LINK_AND_QR_CODE_VERSION' ) ) {
+    define( 'COPY_LINK_AND_QR_CODE_VERSION', '1.0.1' );
+}
+
+if ( ! defined( 'COPY_LINK_AND_QR_CODE_PLUGIN_DIR' ) ) {
+    define( 'COPY_LINK_AND_QR_CODE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+}
+
+if ( ! defined( 'COPY_LINK_AND_QR_CODE_PLUGIN_URL' ) ) {
+    define( 'COPY_LINK_AND_QR_CODE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+}
+
 
 if ( ! defined( 'COPY_LINK_AND_QR_CODE_BASENAME' ) ) {
     define( 'COPY_LINK_AND_QR_CODE_BASENAME', plugin_basename( __FILE__ ) );
 }
 
-// ----- include classes
+/**
+ * include classes
+ */
 require_once COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'includes/class-clqrc-assets.php';
 require_once COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'includes/class-clqrc-frontend.php';
 require_once COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'includes/class-clqrc-admin.php';
 require_once COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'includes/class-clqrc-block.php';
 require_once COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'includes/class-clqrc-privacy.php';
 
-// ----- activation / deactivation
+/**
+ * activation / deactivation
+ */
 register_activation_hook( __FILE__, 'copy_link_and_qr_code_activate' );
 register_deactivation_hook( __FILE__, 'copy_link_and_qr_code_deactivate' );
 
@@ -49,9 +61,7 @@ register_deactivation_hook( __FILE__, 'copy_link_and_qr_code_deactivate' );
 function copy_link_and_qr_code_default_settings() {
     return array(
         'post_types' => array( 'post', 'page' ),
-        'position'   => 'after',           // before | after
-        'use_cdn'    => 0,                 // 0 = local only (recommended), 1 = use CDN when local missing
-        'cdn_version'=> '1.4.4',           // default CDN library version (editable in settings)
+        'position'   => 'after',
     );
 }
 
@@ -81,7 +91,6 @@ function copy_link_and_qr_code_deactivate() {
     // no-op for now. Use uninstall.php to remove options if desired.
 }
 
-// ----- boot plugin classes on plugins_loaded
 add_action( 'plugins_loaded', function() {
 
     if ( class_exists( 'CLQRC_Assets' ) ) {

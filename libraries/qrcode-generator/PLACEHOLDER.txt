@@ -8,9 +8,6 @@ To comply with WordPress.org guidelines you should bundle the UNMINIFIED source 
 2. Place the file in this folder as:
    libraries/qrcode-generator/qrcode.js
 
-3. Optionally include qrcode.min.js for production:
-   libraries/qrcode-generator/qrcode.min.js
-
-4. Include the MIT license file or ensure THIRD-PARTY-NOTICES.md contains the correct license text.
+3. Include the MIT license file or ensure THIRD-PARTY-NOTICES.md contains the correct license text.
 
 If you can't bundle the file, provide clear documentation and use an opt-in CDN fallback, but bundling the unminified source is preferred for WordPress.org review.

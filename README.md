@@ -1,7 +1,7 @@
 # Copy Link and QR Code
 
-Adds **Copy Link** & **Show QR** buttons on any post type (posts, pages, WooCommerce products).  
-Includes settings for post-types, position, shortcode, and a dynamic Gutenberg block.
+Adds **Copy Link** & **Show QR** buttons to any post type (posts, pages, WooCommerce products).  
+Includes settings for post types, button placement, admin QR column toggle, shortcode, and a dynamic Gutenberg block.
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/paypalme/kishanparmar4951)
 
@@ -9,44 +9,59 @@ Includes settings for post-types, position, shortcode, and a dynamic Gutenberg b
 
 ## Features
 
-- 📋 Copy current page URL to clipboard  
-- 📱 Generate a QR code on the fly (no external API)  
-- ⚙️ Settings page for post types & placement  
+- 📋 Copy the current page URL to the clipboard.  
+- 📱 Generate a QR code on the fly (no external API required).  
+- ⚙️ Settings page to enable/disable buttons per post type and control placement.  
 - 🔧 Shortcode: `[copy_link_and_qr_code]`  
-- 📦 Gutenberg block  
-- 🪶 Lightweight and privacy-friendly (no data collection)  
+- 📦 Gutenberg block for easy insertion.  
+- 🪶 Lightweight and privacy-friendly (no data collection).  
 
 ---
 
 ## Installation
 
-1. Upload the plugin files to `/wp-content/plugins/copy-link-and-qr-code/`  
-2. Activate the plugin through the **Plugins** screen in WordPress  
-3. Configure settings under **Settings → Copy Link & QR Code**  
+1. Upload the plugin files to `/wp-content/plugins/copy-link-and-qr-code/`.  
+2. Activate the plugin via the **Plugins** screen in WordPress.  
+3. Configure settings under **Settings → Copy Link & QR Code**.  
 
 ---
 
 ## Screenshots
 
-1. Copy and QR buttons on a post  
-2. Plugin settings page  
+1. Copy and QR buttons on a post/page/product.  
+2. Plugin settings page.  
+3. Admin post list showing the QR code column (toggleable in settings).  
 
 ---
 
-## FAQ
+## Frequently Asked Questions (FAQ)
 
 ### ❓ Does this plugin collect user data?  
-No. It does not collect or send any data to external servers.  
+No. It does not collect, store, or send any data to external servers.  
 
 ### ❓ Can I use it with WooCommerce?  
 Yes. It works on products as well as posts/pages.  
+
+### ❓ Can I show QR codes in the admin post list?  
+Yes. Enable the **Show QR Code Column in Admin** toggle in the plugin settings to display a QR code column in post/page/custom post type lists.  
 
 ---
 
 ## Changelog
 
+### 1.1
+- Added admin toggle to enable/disable QR Code column in post/page/custom post type list tables.  
+- Updated settings page to include the new toggle.  
+- Refactored `CLQRC_Admin` class for better maintainability.  
+- Minor HTML and formatting improvements in the settings page.  
+- Ensured compatibility with WordPress 6.1+ and PHP 7.4+.  
+
 ### 1.0
 - Initial release.  
+- Adds Copy Link & Show QR buttons on single posts/pages/CPTs.  
+- Settings page for post types & button placement.  
+- Shortcode `[copy_link_and_qr_code]` and Gutenberg block.  
+- Privacy-friendly: no data collection.  
 
 ---
 

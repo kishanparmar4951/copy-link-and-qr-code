@@ -1,6 +1,6 @@
 <?php
 /**
- * Handles frontend display: buttons, shortcode.
+ * Frontend display: shortcode + optional auto display
  *
  * @package CopyLinkQR
  */
@@ -12,61 +12,81 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CLQRC_Frontend {
 
     /**
-     * Constructor.
+     * Constructor
      */
     public function __construct() {
-        add_filter( 'the_content', array( $this, 'maybe_add_buttons' ) );
+        // Shortcode
         add_shortcode( 'copy_link_and_qr_code', array( $this, 'shortcode_output' ) );
-    }
 
-    /**
-     * Add buttons before/after content if enabled.
-     */
-    public function maybe_add_buttons( $content ) {
-        if ( ! is_singular() ) {
-            return $content;
+        // Auto insert if enabled
+        $settings = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
+        if ( ! empty( $settings['auto_display'] ) ) {
+            add_filter( 'the_content', array( $this, 'maybe_add_buttons' ) );
         }
-
-        $settings   = get_option( 'copy_link_and_qr_code_settings', array() );
-        $post_types = isset( $settings['post_types'] ) ? (array) $settings['post_types'] : array();
-        $position   = isset( $settings['position'] ) ? $settings['position'] : 'after';
-
-        if ( ! in_array( get_post_type(), $post_types, true ) ) {
-            return $content;
-        }
-
-        $buttons_html = $this->get_buttons_html();
-
-        if ( 'before' === $position ) {
-            return $buttons_html . $content;
-        }
-
-        return $content . $buttons_html;
     }
 
     /**
      * Shortcode output.
+     *
+     * @param array $atts Shortcode attributes (not used currently)
+     * @return string
      */
-    public function shortcode_output() {
-        return $this->get_buttons_html();
-    }
+    public function shortcode_output( $atts = array() ) {
+        if ( ! is_singular() ) {
+            return '';
+        }
 
-    /**
-     * Generate HTML for buttons.
-     */
-    private function get_buttons_html() {
+        $post_id = get_the_ID();
+        if ( ! $post_id ) {
+            return '';
+        }
+
+        $url = get_permalink( $post_id );
+
         ob_start();
         ?>
         <div class="clqrc-buttons">
-            <button class="clqrc-copy" data-url="<?php echo esc_url( get_permalink() ); ?>">
+            <button type="button" class="clqrc-copy" data-url="<?php echo esc_url( $url ); ?>">
                 <?php esc_html_e( 'Copy Link', 'copy-link-and-qr-code' ); ?>
             </button>
-            <button class="clqrc-qr" data-url="<?php echo esc_url( get_permalink() ); ?>">
+            <button type="button" class="clqrc-qr" data-url="<?php echo esc_url( $url ); ?>">
                 <?php esc_html_e( 'Show QR', 'copy-link-and-qr-code' ); ?>
             </button>
             <div class="clqrc-qr-popup" style="display:none;"></div>
         </div>
         <?php
         return ob_get_clean();
+    }
+
+    /**
+     * Maybe auto-insert buttons before/after content.
+     *
+     * @param string $content
+     * @return string
+     */
+    public function maybe_add_buttons( $content ) {
+        if ( ! is_singular() ) {
+            return $content;
+        }
+
+        global $post;
+        if ( ! $post || empty( $post->post_type ) ) {
+            return $content;
+        }
+
+        $settings   = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
+        $post_types = ! empty( $settings['post_types'] ) ? (array) $settings['post_types'] : array();
+
+        if ( ! in_array( $post->post_type, $post_types, true ) ) {
+            return $content;
+        }
+
+        $buttons = $this->shortcode_output();
+
+        if ( 'before' === ( $settings['position'] ?? 'after' ) ) {
+            return $buttons . $content;
+        }
+
+        return $content . $buttons;
     }
 }

@@ -5,6 +5,10 @@
  * Adds settings:
  *  - enabled post types
  *  - position (before|after)
+ *  - toggle admin QR column
+ *  - toggle auto-display
+ *  - shortcode info
+ *
  * @package CopyLinkQR
  */
 
@@ -67,13 +71,37 @@ class CLQRC_Admin {
             'copy-link-and-qr-code',
             'clqrc_main'
         );
+
+        add_settings_field(
+            'admin_qr_column',
+            __( 'Admin QR Column', 'copy-link-and-qr-code' ),
+            array( $this, 'field_admin_qr_column' ),
+            'copy-link-and-qr-code',
+            'clqrc_main'
+        );
+
+        add_settings_field(
+            'auto_display',
+            __( 'Automatic Display', 'copy-link-and-qr-code' ),
+            array( $this, 'field_auto_display' ),
+            'copy-link-and-qr-code',
+            'clqrc_main'
+        );
+
+        add_settings_field(
+            'shortcode_info',
+            __( 'Shortcode', 'copy-link-and-qr-code' ),
+            array( $this, 'field_shortcode_info' ),
+            'copy-link-and-qr-code',
+            'clqrc_main'
+        );
     }
 
     /**
      * Intro section callback.
      */
     public function section_intro() {
-        echo '<p>' . esc_html__( 'Choose where to show the Copy Link and QR buttons. For best compliance with WordPress.org, bundle the unminified qrcode-generator library under /libraries/qrcode-generator/qrcode.js.', 'copy-link-and-qr-code' ) . '</p>';
+        echo '<p>' . esc_html__( 'Configure where and how the Copy Link & QR Code buttons should appear.', 'copy-link-and-qr-code' ) . '</p>';
     }
 
     /**
@@ -84,16 +112,23 @@ class CLQRC_Admin {
      */
     public function sanitize_settings( $input ) {
         $defaults = copy_link_and_qr_code_default_settings();
-        $output = array();
+        $output   = array();
 
-        // post_types
+        // Post types
         $all_post_types = get_post_types( array( 'public' => true ), 'names' );
-        $submitted = isset( $input['post_types'] ) ? (array) $input['post_types'] : $defaults['post_types'];
-        $output['post_types'] = array_values( array_intersect( $all_post_types, array_map( 'sanitize_text_field', $submitted ) ) );
+        $submitted      = isset( $input['post_types'] ) ? (array) $input['post_types'] : $defaults['post_types'];
+        $submitted      = array_map( 'sanitize_text_field', $submitted );
+        $output['post_types'] = array_values( array_intersect( $all_post_types, $submitted ) );
 
-        // position
+        // Position
         $position = isset( $input['position'] ) ? sanitize_text_field( $input['position'] ) : $defaults['position'];
         $output['position'] = in_array( $position, array( 'before', 'after' ), true ) ? $position : $defaults['position'];
+
+        // Admin QR column toggle
+        $output['admin_qr_column'] = ! empty( $input['admin_qr_column'] ) ? true : false;
+
+        // Auto display toggle
+        $output['auto_display'] = ! empty( $input['auto_display'] ) ? true : false;
 
         return $output;
     }
@@ -102,9 +137,9 @@ class CLQRC_Admin {
      * Field: post types.
      */
     public function field_post_types() {
-        $options     = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
-        $post_types  = get_post_types( array( 'public' => true ), 'objects' );
-        $enabled     = isset( $options['post_types'] ) ? (array) $options['post_types'] : array();
+        $options    = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
+        $post_types = get_post_types( array( 'public' => true ), 'objects' );
+        $enabled    = isset( $options['post_types'] ) ? (array) $options['post_types'] : array();
 
         foreach ( $post_types as $slug => $obj ) {
             printf(
@@ -131,6 +166,42 @@ class CLQRC_Admin {
     }
 
     /**
+     * Field: admin QR column toggle.
+     */
+    public function field_admin_qr_column() {
+        $options = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
+        ?>
+        <label>
+            <input type="checkbox" name="copy_link_and_qr_code_settings[admin_qr_column]" value="1" <?php checked( $options['admin_qr_column'], true ); ?> />
+            <?php esc_html_e( 'Enable QR code column in admin post/page/CPT list tables.', 'copy-link-and-qr-code' ); ?>
+        </label>
+        <?php
+    }
+
+    /**
+     * Field: auto display toggle.
+     */
+    public function field_auto_display() {
+        $options = get_option( 'copy_link_and_qr_code_settings', copy_link_and_qr_code_default_settings() );
+        ?>
+        <label>
+            <input type="checkbox" name="copy_link_and_qr_code_settings[auto_display]" value="1" <?php checked( $options['auto_display'], true ); ?> />
+            <?php esc_html_e( 'Automatically insert buttons before/after content for enabled post types.', 'copy-link-and-qr-code' ); ?>
+        </label>
+        <?php
+    }
+
+    /**
+     * Field: shortcode info (read-only).
+     */
+    public function field_shortcode_info() {
+        ?>
+        <p><?php esc_html_e( 'You can manually insert the buttons anywhere using this shortcode:', 'copy-link-and-qr-code' ); ?></p>
+        <code>[copy_link_and_qr_code]</code>
+        <?php
+    }
+
+    /**
      * Render settings page.
      */
     public function render_settings_page() {
@@ -144,12 +215,6 @@ class CLQRC_Admin {
                 submit_button();
                 ?>
             </form>
-
-            <h2><?php esc_html_e( 'Bundling guidelines', 'copy-link-and-qr-code' ); ?></h2>
-            <div class="clqrc-admin-help">
-                <p><?php esc_html_e( 'For WordPress.org plugin review, bundle the UNMINIFIED qrcode-generator source at:', 'copy-link-and-qr-code' ); ?></p>
-                <code><?php echo esc_html( COPY_LINK_AND_QR_CODE_PLUGIN_DIR . 'libraries/qrcode-generator/qrcode.js' ); ?></code>
-            </div>
         </div>
         <?php
     }

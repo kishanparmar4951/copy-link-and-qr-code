@@ -1,8 +1,23 @@
 /**
- * Admin JS for Copy Link & QR Code (settings page)
+ * Admin JS for Copy Link & QR Code
+ * - Generates QR codes in the admin list table column
+ *
+ * Requires: QRCode.js (https://github.com/davidshimjs/qrcodejs)
  */
-(function () {
-	'use strict';
-	// For now, admin JS is tiny. Expand later if you need dynamic settings UI.
-	console.log( 'Copy Link & QR Code admin script loaded' );
-})();
+jQuery(document).ready(function ($) {
+    if (typeof QRCode !== "undefined") {
+        $(".clqrc-qr-admin").each(function () {
+            const el = $(this)[0];
+            const url = el.getAttribute("data-url");
+            if (url) {
+                new QRCode(el, {
+                    text: url,
+                    width: 80,
+                    height: 80,
+                });
+            }
+        });
+    } else {
+        console.warn("QRCode.js not loaded. Admin QR column will not render.");
+    }
+});

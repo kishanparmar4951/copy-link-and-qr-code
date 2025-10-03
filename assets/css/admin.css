@@ -1,12 +1,62 @@
 /* Admin page styles for Copy Link & QR Code */
+
+/* Wrap for plugin settings */
 .wrap .clqrc-admin-wrap {
   max-width: 900px;
+  margin-top: 20px;
 }
 
+/* Help / guidelines box */
 .clqrc-admin-help {
-  margin-top: 8px;
-  padding: 10px;
-  background: #fff;
+  margin-top: 16px;
+  padding: 12px 15px;
+  background-color: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Checkbox labels spacing */
+.clqrc-admin-wrap label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+/* Shortcode box */
+.clqrc-admin-wrap code {
+  display: inline-block;
+  background-color: #f1f1f1;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+/* Admin QR column styling */
+.clqrc-qr-admin {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.clqrc-qr-admin svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .wrap .clqrc-admin-wrap {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .clqrc-qr-admin {
+    width: 60px;
+    height: 60px;
+  }
 }

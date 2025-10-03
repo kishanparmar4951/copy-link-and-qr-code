@@ -5,7 +5,7 @@
  * Author: Kishan Parmar
  * Author URI: https://profiles.wordpress.org/kishanparmar/
  * Donate link: https://www.paypal.com/paypalme/kishanparmar4951
- * Description: Adds "Copy Link" and "Show QR" buttons on any post type (posts, pages, WooCommerce products). Includes settings for post-types, button position, admin QR column toggle, shortcode, and a dynamic Gutenberg block.
+* Description: Adds "Copy Link" and "QR Code" buttons to posts, pages, and products. Supports shortcode, Gutenberg block, button settings, and admin QR column.
  * Version: 1.1
  * Requires at least: 6.1
  * Requires PHP: 7.4

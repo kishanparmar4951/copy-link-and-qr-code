@@ -9,8 +9,6 @@ Stable tag: 1.1
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Add Copy Link & Show QR buttons to posts, pages, and custom post types. Includes settings for post types, button placement, admin toggle, shortcode, and a dynamic Gutenberg block.
-
 == Description ==
 
 **Copy Link and QR Code** allows you to add shareable buttons to posts, pages, and WooCommerce products:
